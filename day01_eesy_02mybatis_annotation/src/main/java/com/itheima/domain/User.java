@@ -4,8 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * @author 黑马程序员
- * @Company http://www.ithiema.com
+ *
  */
 public class User implements Serializable{
 

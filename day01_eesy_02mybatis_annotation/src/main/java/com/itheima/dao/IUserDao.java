@@ -6,8 +6,8 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 
 /**
- * @author 黑马程序员
- * @Company http://www.ithiema.com
+ *
+ *
  *
  * 用户的持久层接口
  */

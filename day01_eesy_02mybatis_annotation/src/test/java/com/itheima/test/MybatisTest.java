@@ -11,8 +11,7 @@ import java.io.InputStream;
 import java.util.List;
 
 /**
- * @author 黑马程序员
- * @Company http://www.ithiema.com
+ *
  * mybatis的入门案例
  */
 public class MybatisTest {
