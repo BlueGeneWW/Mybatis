@@ -29,7 +29,7 @@ public class MybatisTest {
         SqlSessionFactory factory = builder.build(in);
         //3.使用工厂生产SqlSession对象
         SqlSession session = factory.openSession();
-        //4.使用SqlSession创建Dao接口的代理对象
+        //4. 使用SqlSession创建Dao接口的代理对象
         IUserDao userDao = session.getMapper(IUserDao.class);
         //5.使用代理对象执行方法
         List<User> users = userDao.findAll();
