@@ -32,7 +32,7 @@ public class MybatisTest {
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(in);
         //3.获取SqlSession对象
         sqlSession = factory.openSession();
-        //4.获取dao的代理对象
+        //4.获取dao的代理对 象
         userDao = sqlSession.getMapper(IUserDao.class);
     }
 
