@@ -15,8 +15,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @author 黑马程序员
- * @Company http://www.ithiema.com
+ *
  *
  * 测试mybatis的crud操作
  */
@@ -31,7 +30,11 @@ public class MybatisTest {
         in = Resources.getResourceAsStream("SqlMapConfig.xml");
         //2.获取SqlSessionFactory
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(in);
-        //3.使用工厂对象，创建dao对象
+        /**
+         * 3.使用工厂对象，创建dao对象。
+         *   注意：打开dao实现类，
+         *   语句SqlSession session = factory.openSession()用了工厂模式。
+         */
         userDao = new UserDaoImpl(factory);
     }
 

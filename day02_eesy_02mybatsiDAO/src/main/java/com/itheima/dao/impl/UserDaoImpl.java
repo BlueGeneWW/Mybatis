@@ -8,7 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import java.util.List;
 
 /**
- *
+ *mybatis支持我们自己写dao的实现类。注意session.selectList方法。
  */
 public class UserDaoImpl implements IUserDao {
 
@@ -22,7 +22,7 @@ public class UserDaoImpl implements IUserDao {
     public List<User> findAll() {
         //1.根据factory获取SqlSession对象
         SqlSession session = factory.openSession();
-        //2.调用SqlSession中的方法，实现查询列表
+        //2.调用SqlSession中的方法，实现查询列表   selectList第一个参数string
         List<User> users = session.selectList("com.itheima.dao.IUserDao.findAll");//参数就是能获取配置信息的key
         //3.释放资源
         session.close();
@@ -34,7 +34,7 @@ public class UserDaoImpl implements IUserDao {
         //1.根据factory获取SqlSession对象
         SqlSession session = factory.openSession();
         //2.调用方法实现保存
-        session.insert("com.itheima.dao.IUserDao.saveUser",user);
+        session.insert("com.itheima.dao.IUserDao.saveUser",user);//注意方法的第二个参数-----------------------------
         //3.提交事务
         session.commit();
         //4.释放资源
@@ -58,7 +58,7 @@ public class UserDaoImpl implements IUserDao {
         //1.根据factory获取SqlSession对象
         SqlSession session = factory.openSession();
         //2.调用方法实现更新
-        session.update("com.itheima.dao.IUserDao.deleteUser",userId);
+        session.update("com.itheima.dao.IUserDao.deleteUser",userId);//注意方法的第二个参数-----------------------------
         //3.提交事务
         session.commit();
         //4.释放资源
@@ -86,7 +86,7 @@ public class UserDaoImpl implements IUserDao {
         session.close();
         return users;
     }
-
+    //获取总记录条数
     @Override
     public int findTotal() {
         //1.根据factory获取SqlSession对象
