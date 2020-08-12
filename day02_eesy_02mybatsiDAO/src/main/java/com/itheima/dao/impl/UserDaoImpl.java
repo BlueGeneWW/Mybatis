@@ -8,7 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import java.util.List;
 
 /**
- *mybatis支持我们自己写dao的实现类。注意session.selectList方法。
+ *mybatis支持我们自己写dao的实现类。
  */
 public class UserDaoImpl implements IUserDao {
 
@@ -22,7 +22,7 @@ public class UserDaoImpl implements IUserDao {
     public List<User> findAll() {
         //1.根据factory获取SqlSession对象
         SqlSession session = factory.openSession();
-        //2.调用SqlSession中的方法，实现查询列表   selectList第一个参数string
+        //2.调用SqlSession中的方法，实现查询列表
         List<User> users = session.selectList("com.itheima.dao.IUserDao.findAll");//参数就是能获取配置信息的key
         //3.释放资源
         session.close();
