@@ -1,0 +1,61 @@
+1.回顾mybatis自定义再分析和环境搭建+完善基于注解的mybatis：
+2.mybatis的crud（基于代理dao的方式）
+3.mybatis中的参数深入及结果集的深入
+4.mybatis中基于传统dao的方式（编写dao的实现类）----了解内容
+5.mybatis中的配置（主配置文件：SqlMapConfig.xml）
+  properties标签
+  typeAlise标签
+  mapper标签
+6.parameterType（输入类型）
+  1）传递简单类型；
+  2）传递pojo对象（Mybatis使用ognl表达式解析对象字段的值，#{}或
+     ${}括号中的值为pojo属性名称）；
+  3）传递pojo包装对象（由多个对象组成查询的条件来完成对数据的查询）：
+     开发中通过pojo传递查询条件，查询条件是综合的查询条件，不仅包括用户的查询条件
+     还包括其它的查询条件（比如将用户购买商品信息也作为查询条件），这时可以使用包
+     装对象传递输入参数。Pojo类中包含pojo。
+     需求：根据用户名查询用户信息，查询条件放到	QueryVo的user属性中。
+7.resultType（输出类型）
+  1）输出简单类型
+  2）输出pojo对象
+  3）输出pojo列表
+8.ognl表达式
+  Object Graphic Navigation Language（对象图导航语言），它是通过对象的
+  取值方法来获取数据。写法上把get给省略了。
+  比如：我们获取用户的名称
+    类中的写法：user.getUsername
+    ognl表达式写法：user.username
+  mybatis中为什么能直接写username而不用user.呢？
+  因为在parameterType中已经提供了属性所属的类，所以此时不需要写对象名
+9.mysql数据库在windows系统下不区分大小写。
+10.Debug断点调试
+  1）step into：进入子函数；
+  2）force step into：强制进入子函数，常用于源码的查看；
+  3）step over：越过子函数，但子函数会执行；
+  4）step out：跳出子函数，回到调用这个子涵数的地方，但是这个子函数已经执行。
+  5）Drop fram：返回到方法的调用处，并且所有上下文的变量值也回到那个时候。
+11.PrepareStatement对象
+  它的执行方法有三个：
+  1）execute()这个方法除了可以查询，还可以完成增删改，crud。它的返回值是一个boolean类型，
+     表示是否有结果集，有结果集是true，没有是false，
+     mybatis中最终执行的也是这个方法（你传的语句不一样，给的参数不一样，得到的结果不一样）；
+  2）executeUpdate()它只能cud，查询语句无法执行，它的返回值是影响数据库记录的行数；
+  3）executeQuery()它只能执行查询语句，它的返回值是执行结果封装的结果集ResultSet对象。
+12.CRUD说的就是增查改删
+  C：Create 增加对应CREATE，ADD 
+  R：Retrieve查询SELECT 
+  U：Update修改UPDATE 
+  D：Delete删除 DELETE 
+13.file协议
+  示例：file:///D:/AA-workspace/WORKSPACE/jdbcConfig.properties
+  示例中用的是默认端口。
+  http协议：http://localhost:8080/mybatisserver/demo1Servlet
+            协议      主机   端口       URI
+  特别的在windows的文件夹系统它把file协议给省略了。
+14.URL和URI
+  URL：Uniform Resource Locator 统一资源定位符。它是可以唯一标识一个资源的位置。
+  它的写法：
+  http://localhost:8080/mybatisserver/demo1Servlet
+  协议      主机   端口       URI
+  URI:Uniform Resource Identifier 统一资源标识符。它是在应用中可以唯一定位一个资源的。
+  
